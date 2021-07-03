@@ -1,0 +1,3 @@
+Font : heading - Gilroy
+
+color code : yellow - #fad026
