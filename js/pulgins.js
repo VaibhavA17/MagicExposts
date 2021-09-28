@@ -7,14 +7,13 @@ window.addEventListener('load', function(){
     $(function(){
         $("#footer-placeholder").load("../pulgins/footer.html");
     });
-})
-window.addEventListener('load', function(){
+
     $(function(){
-        $("#nav-placeholder").load("pulgins2/nav.html");
+        $("#nav-placeholdermain").load("pulgins2/nav.html");
     });
     
     $(function(){
-        $("#footer-placeholder").load("pulgins/footer.html");
+        $("#footer-placeholder").load("pulgins2/footer.html");
     });
 })
 
