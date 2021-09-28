@@ -112,7 +112,7 @@
                     </div>
                 </div>
 
-                <form method="post">
+                <form method="POST">
                     <div class="contact-form">
 
                         <div class="col-md-4">
