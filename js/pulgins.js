@@ -17,7 +17,7 @@ window.addEventListener('load', function(){
     });
 })
 
-const scrollMenu = document.querySelector('.scrollmenu')
+// const scrollMenu = document.querySelector('.scrollmenu')
 const scrollBtns = document.querySelectorAll('#smbtn')
 const singleSlider = document.querySelector('.single-slider')
 
@@ -28,15 +28,19 @@ scrollBtns.forEach(function(btn){
         count = value
         carousel()
     })
-
 })
-
-
 
 const slideBtns = document.querySelectorAll('.npbtn')
 const prevBtn = document.querySelector('.prev-slide')
 const nextBtn = document.querySelector('.next-slide')
 let count = 1
+
+nextBtn.onclick = function () {
+    document.querySelector('.scrollmenu').scrollLeft += 195
+}
+prevBtn.onclick = function () {
+    document.querySelector('.scrollmenu').scrollLeft -= 195
+}
 
 slideBtns.forEach(function(btn){
     btn.addEventListener('click', function(e){
