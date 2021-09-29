@@ -1,4 +1,3 @@
-
 window.addEventListener('load', function(){
     $(function(){
         $("#nav-placeholder").load("../pulgins/nav.html");
@@ -17,7 +16,6 @@ window.addEventListener('load', function(){
     });
 })
 
-// const scrollMenu = document.querySelector('.scrollmenu')
 const scrollBtns = document.querySelectorAll('#smbtn')
 const singleSlider = document.querySelector('.single-slider')
 
@@ -80,5 +78,3 @@ function carousel() {
     }
 }
 prevBtn.style.display = "none";
-
-
