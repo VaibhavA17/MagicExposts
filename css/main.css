@@ -1707,6 +1707,21 @@ ul.client-thumb-2 li a img:hover {
     clear: both;
 }
 
+/* Scroll Menu */
+.scrollmenu {
+	background-color: rgb(255, 255, 255);
+	overflow: auto;
+	white-space: nowrap;
+}
+
+.scrollmenu a {
+	display: inline-block;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+}
+
+
 
 /*Overlay Thumb Portftolio and Team*/
 
