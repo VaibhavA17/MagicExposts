@@ -263,6 +263,8 @@ function carousel5() {
         prevBtn.style.display = "none";
     }
 }
+
+// fgfjghfghdfdfdhfjkljjhgfdssfghjklhkjghffd
 // h7.html
 const scrollBtns6 = document.querySelectorAll('#smbtn6')
 const singleSlider6 = document.querySelector('.scroll6')
@@ -270,7 +272,7 @@ const singleSlider6 = document.querySelector('.scroll6')
 scrollBtns6.forEach(function(btn){
     btn.addEventListener("click", function(e){
         const value = e.currentTarget.dataset.id
-        singleSlider6.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/comforter/ME-C-${value}.jpg" alt="slider"></div>`
+        singleSlider6.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/darries/ME-D-${value}.png" alt="slider"></div>`
         count = value
         carousel6()
     })
@@ -284,17 +286,17 @@ slideBtns6.forEach(function(btn){
         if ( styles.contains("next-slide")){
             count++
             if (count<10){
-                singleSlider6.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/comforter/ME-C-00${count}.jpg" alt="slider"></div>`
+                singleSlider6.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/darries/ME-D-00${count}.png" alt="slider"></div>`
             }else{
-                singleSlider6.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/comforter/ME-C-0${count}.jpg" alt="slider"></div>`
+                singleSlider6.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/darries/ME-D-0${count}.png" alt="slider"></div>`
             }
         }
         else if ( styles.contains("prev-slide")){
             count--
             if (count<10){
-                singleSlider6.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/comforter/ME-C-00${count}.jpg" alt="slider"></div>`
+                singleSlider6.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/darries/ME-D-00${count}.png" alt="slider"></div>`
             }else{
-                singleSlider6.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/comforter/ME-C-0${count}.jpg" alt="slider"></div>`
+                singleSlider6.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/darries/ME-D-0${count}.png" alt="slider"></div>`
             }
         }
         carousel6()
@@ -302,7 +304,7 @@ slideBtns6.forEach(function(btn){
 })
 
 function carousel6() {
-    if (count < 11) {
+    if (count < 40) {
         nextBtn.style.display = "block";
     } else {
         nextBtn.style.display = "none";
@@ -320,7 +322,7 @@ const singleSlider7 = document.querySelector('.scroll7')
 scrollBtns7.forEach(function(btn){
     btn.addEventListener("click", function(e){
         const value = e.currentTarget.dataset.id
-        singleSlider7.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/comforter/ME-C-${value}.jpg" alt="slider"></div>`
+        singleSlider7.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/carpets/ME-HC-${value}.png" alt="slider"></div>`
         count = value
         carousel7()
     })
@@ -334,17 +336,17 @@ slideBtns7.forEach(function(btn){
         if ( styles.contains("next-slide")){
             count++
             if (count<10){
-                singleSlider7.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/comforter/ME-C-00${count}.jpg" alt="slider"></div>`
+                singleSlider7.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/carpets/ME-HC-00${count}.png" alt="slider"></div>`
             }else{
-                singleSlider7.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/comforter/ME-C-0${count}.jpg" alt="slider"></div>`
+                singleSlider7.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/carpets/ME-HC-0${count}.png" alt="slider"></div>`
             }
         }
         else if ( styles.contains("prev-slide")){
             count--
             if (count<10){
-                singleSlider7.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/comforter/ME-C-00${count}.jpg" alt="slider"></div>`
+                singleSlider7.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/carpets/ME-HC-00${count}.png" alt="slider"></div>`
             }else{
-                singleSlider7.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/comforter/ME-C-0${count}.jpg" alt="slider"></div>`
+                singleSlider7.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/carpets/ME-HC-0${count}.png" alt="slider"></div>`
             }
         }
         carousel7()
@@ -352,7 +354,7 @@ slideBtns7.forEach(function(btn){
 })
 
 function carousel7() {
-    if (count < 11) {
+    if (count < 22) {
         nextBtn.style.display = "block";
     } else {
         nextBtn.style.display = "none";
@@ -370,7 +372,7 @@ const singleSlider8 = document.querySelector('.scroll8')
 scrollBtns8.forEach(function(btn){
     btn.addEventListener("click", function(e){
         const value = e.currentTarget.dataset.id
-        singleSlider8.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/comforter/ME-C-${value}.jpg" alt="slider"></div>`
+        singleSlider8.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/tcarpets/ME-TC-${value}.png" alt="slider"></div>`
         count = value
         carousel8()
     })
@@ -384,17 +386,17 @@ slideBtns8.forEach(function(btn){
         if ( styles.contains("next-slide")){
             count++
             if (count<10){
-                singleSlider8.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/comforter/ME-C-00${count}.jpg" alt="slider"></div>`
+                singleSlider8.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/tcarpets/ME-TC-00${count}.png" alt="slider"></div>`
             }else{
-                singleSlider8.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/comforter/ME-C-0${count}.jpg" alt="slider"></div>`
+                singleSlider8.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/tcarpets/ME-TC-0${count}.png" alt="slider"></div>`
             }
         }
         else if ( styles.contains("prev-slide")){
             count--
             if (count<10){
-                singleSlider8.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/comforter/ME-C-00${count}.jpg" alt="slider"></div>`
+                singleSlider8.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/tcarpets/ME-TC-00${count}.png" alt="slider"></div>`
             }else{
-                singleSlider8.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/comforter/ME-C-0${count}.jpg" alt="slider"></div>`
+                singleSlider8.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/tcarpets/ME-TC-0${count}.png" alt="slider"></div>`
             }
         }
         carousel8()
@@ -402,7 +404,7 @@ slideBtns8.forEach(function(btn){
 })
 
 function carousel8() {
-    if (count < 11) {
+    if (count < 44) {
         nextBtn.style.display = "block";
     } else {
         nextBtn.style.display = "none";
@@ -420,7 +422,7 @@ const singleSlider9 = document.querySelector('.scroll9')
 scrollBtns9.forEach(function(btn){
     btn.addEventListener("click", function(e){
         const value = e.currentTarget.dataset.id
-        singleSlider9.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/comforter/ME-C-${value}.jpg" alt="slider"></div>`
+        singleSlider9.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/img_${value}.jpg" alt="slider"></div>`
         count = value
         carousel9()
     })
@@ -434,17 +436,17 @@ slideBtns9.forEach(function(btn){
         if ( styles.contains("next-slide")){
             count++
             if (count<10){
-                singleSlider9.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/comforter/ME-C-00${count}.jpg" alt="slider"></div>`
+                singleSlider9.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/img_00${count}.jpg" alt="slider"></div>`
             }else{
-                singleSlider9.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/comforter/ME-C-0${count}.jpg" alt="slider"></div>`
+                singleSlider9.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/img_0${count}.jpg" alt="slider"></div>`
             }
         }
         else if ( styles.contains("prev-slide")){
             count--
             if (count<10){
-                singleSlider9.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/comforter/ME-C-00${count}.jpg" alt="slider"></div>`
+                singleSlider9.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/img_00${count}.jpg" alt="slider"></div>`
             }else{
-                singleSlider9.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/comforter/ME-C-0${count}.jpg" alt="slider"></div>`
+                singleSlider9.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/img_0${count}.jpg" alt="slider"></div>`
             }
         }
         carousel9()
@@ -452,7 +454,7 @@ slideBtns9.forEach(function(btn){
 })
 
 function carousel9() {
-    if (count < 11) {
+    if (count < 5) {
         nextBtn.style.display = "block";
     } else {
         nextBtn.style.display = "none";
@@ -470,7 +472,7 @@ const singleSlider10 = document.querySelector('.scroll10')
 scrollBtns10.forEach(function(btn){
     btn.addEventListener("click", function(e){
         const value = e.currentTarget.dataset.id
-        singleSlider10.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/comforter/ME-C-${value}.jpg" alt="slider"></div>`
+        singleSlider10.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/ME-FB-${value}.jpg" alt="slider"></div>`
         count = value
         carousel10()
     })
@@ -484,17 +486,17 @@ slideBtns10.forEach(function(btn){
         if ( styles.contains("next-slide")){
             count++
             if (count<10){
-                singleSlider10.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/comforter/ME-C-00${count}.jpg" alt="slider"></div>`
+                singleSlider10.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/ME-FB-00${count}.jpg" alt="slider"></div>`
             }else{
-                singleSlider10.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/comforter/ME-C-0${count}.jpg" alt="slider"></div>`
+                singleSlider10.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/ME-FB-0${count}.jpg" alt="slider"></div>`
             }
         }
         else if ( styles.contains("prev-slide")){
             count--
             if (count<10){
-                singleSlider10.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/comforter/ME-C-00${count}.jpg" alt="slider"></div>`
+                singleSlider10.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/ME-FB-00${count}.jpg" alt="slider"></div>`
             }else{
-                singleSlider10.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/comforter/ME-C-0${count}.jpg" alt="slider"></div>`
+                singleSlider10.innerHTML = `<div><img class="img-responsive center-block" src="../img/products/ME-FB-0${count}.jpg" alt="slider"></div>`
             }
         }
         carousel10()
@@ -502,7 +504,7 @@ slideBtns10.forEach(function(btn){
 })
 
 function carousel10() {
-    if (count < 11) {
+    if (count < 10) {
         nextBtn.style.display = "block";
     } else {
         nextBtn.style.display = "none";
