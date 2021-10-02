@@ -15,7 +15,8 @@
 
 <body>
     <nav><ul>
-        <il><a href="/">Login</a></il>
+        <il><a href="/">Home</a></il>
+        <il><a href="/login">Login</a></il>
         <il><a href="/register">Register</a></il>
     </ul></nav>
     <div class="content">
@@ -36,10 +37,18 @@
                         <div class="form-group">
                             <input type="password" class="form-control" id="password" name="password">
                         </div>
+                        <h6 class="card-category text-gray" for="passwordConfirm">Password Confirm</h6>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm">
+                        </div>
                         <a class="btn btn-primary btn-round"><button type="submit">Register</button></a>
                         </form>
                     </div>
                 </div>
+
+                {{#if message}}
+                <h4 class="alert alert-danger mt-4">{{message}}</h4>
+                {{/if}}
             </div>
         </div>
     </div>
