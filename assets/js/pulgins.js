@@ -8,10 +8,10 @@ window.addEventListener('load', function () {
     });
 
     $(function () {
-        $("#nav-placeholdermain").load("assets/plugins/nav.html");
+        $("#nav-placeholdermain").load("assets/plugins/navmain.html");
     });
 
     $(function () {
-        $("#footer-placeholdermain").load("assets/plugins/footer.html");
+        $("#footer-placeholdermain").load("assets/plugins/footermain.html");
     });
 })
