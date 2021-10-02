@@ -147,7 +147,16 @@
     <script src="assets/js/vendor/wow.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/ajax.js"></script>
-    <script src="assets/js/plugins.js"></script>
+    <script>
+    $(function () {
+        $("#nav-placeholdermain").load("assets/plugins/navmain.html");
+    });
+    </script>
+    <script>
+    $(function () {
+        $("#footer-placeholdermain").load("assets/plugins/footermain.html");
+    });
+    </script>
 
 </body>
 
