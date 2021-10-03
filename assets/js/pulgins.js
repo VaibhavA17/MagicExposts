@@ -1,9 +1,9 @@
 window.addEventListener('load', function () {
     $(function () {
-        $("#nav-placeholder").load("../plugins/nav.html");
+        $("#nav-placeholder").load("../assets/plugins/nav.html");
     });
 
     $(function () {
-        $("#footer-placeholder").load("../plugins/footer.html");
+        $("#footer-placeholder").load("../assets/plugins/footer.html");
     });
 })
