@@ -37,6 +37,6 @@ db.connect((error) => {
 app.use('/', require('./routes/pages'))
 app.use('/auth', require('./routes/auth'))
 
-app.listen(5005, () => {
+app.listen(5007, () => {
     console.log("sever started on 5005")
 })
