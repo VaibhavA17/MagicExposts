@@ -24,9 +24,6 @@ router.get('/mail', authController.isLoggedIn,  (req, res) =>{
     }
     
 })
-router.get('/contact',(req, res) =>{
-    res.render('contact')
-})
 router.get('/accounts', authController.isLoggedIn, (req, res) =>{
     if(req.user){
         res.render('accounts.ejs',{
@@ -37,15 +34,9 @@ router.get('/accounts', authController.isLoggedIn, (req, res) =>{
         res.redirect('/login')
     }
 })
-router.get('/readmail', authController.isLoggedIn, (req, res) =>{
-    if(req.user){
-        res.render('readmail',{
-            data: req.data
-        })
-        
-    }else{
-        res.redirect('/login')
-    }
+router.get('/contact',(req, res) =>{
+    res.render('contact')
 })
+
 
 module.exports = router
