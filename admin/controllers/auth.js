@@ -20,7 +20,6 @@ exports.login = (req, res) => {
             })
         }
         db.query('SELECT * FROM register WHERE username = ?', [username], async (error, results) => {
-            console.log(results)
             if (!results || !(await bcrypt.compare(password, results[0].password))) {
                 res.status(401).render('login', {
                     message: 'Invalid Entries'
@@ -30,7 +29,6 @@ exports.login = (req, res) => {
                 const token = jwt.sign({ id: id }, process.env.JWT_SECRET, {
                     expiresIn: process.env.JWT_EXPIRES_IN
                 })
-                console.log(token)
                 const cookieOptions = {
                     expires: new Date(
                         Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000
@@ -47,11 +45,10 @@ exports.login = (req, res) => {
 }
 
 exports.register = (req, res) => {
-    console.log(req.body)
     const { username, email, password, passwordConfirm } = req.body
     db.query('SELECT email FROM register WHERE email = ?', [email], async (error, results) => {
         if (error) {
-            console.log(error);
+            console.log(error)
         }
         if (results.length > 0) {
             return res.render('register', {
@@ -62,15 +59,11 @@ exports.register = (req, res) => {
                 message: 'Passwords do not match'
             })
         }
-
         let hashedPassword = await bcrypt.hash(password, 8)
-        console.log(hashedPassword);
-
         db.query('INSERT INTO register SET ?', { username: username, email: email, password: hashedPassword }, (error, results) => {
             if (error) {
                 console.log(error)
             } else {
-                console.log(results);
                 return res.render('register', {
                     message: 'User Registered'
                 })
@@ -80,13 +73,11 @@ exports.register = (req, res) => {
 }
 
 exports.contact = (req, res) => {
-    console.log(req.body)
     const { name, email, number, message } = req.body
     db.query('INSERT INTO contact SET ?', { name: name, email: email, message: message, number: number }, (error, results) => {
         if (error) {
             console.log(error)
         } else {
-            console.log(results);
             return res.render('contact', {
                 message: 'Message Send'
             })
@@ -98,21 +89,17 @@ exports.isLoggedIn = async (req, res, next) => {
     db.query('SELECT * FROM contact', function (error, result) {
         if (error) throw err
         req.data = result
-        console.log(req.data) 
     })
     db.query('SELECT * FROM register', function (error, result) {
         if (error) throw err
-        req.details = result
-        console.log(req.setails)  
+        req.details = result 
     })
     if (req.cookies.jwt) {
         try {
             // verify the token
             const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET)
-            console.log(decoded)
             // check if user still exist
             db.query('SELECT * FROM register WHERE id = ?', [decoded.id], (error, result) => {
-                console.log(result)
                 if (!result) {
                     return next()
                 }
@@ -122,11 +109,9 @@ exports.isLoggedIn = async (req, res, next) => {
         } catch (error) {
             return next()
         }
-
     } else {
         next()
     }
-
 }
 
 exports.logout = (req, res) => {
