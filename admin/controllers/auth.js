@@ -19,7 +19,6 @@ exports.login = (req, res) => {
                 message: 'Please Provide Email & Password'
             })
         }
-
         db.query('SELECT * FROM register WHERE username = ?', [username], async (error, results) => {
             console.log(results)
             if (!results || !(await bcrypt.compare(password, results[0].password))) {
@@ -28,35 +27,28 @@ exports.login = (req, res) => {
                 })
             } else {
                 const id = results[0].id
-
                 const token = jwt.sign({ id: id }, process.env.JWT_SECRET, {
                     expiresIn: process.env.JWT_EXPIRES_IN
                 })
                 console.log(token)
-
                 const cookieOptions = {
                     expires: new Date(
                         Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000
                     ),
                     httpOnly: true
                 }
-
                 res.cookie('jwt', token, cookieOptions)
                 res.status(200).redirect("/")
             }
         })
-
     } catch (error) {
         console.log(error)
-
     }
 }
 
 exports.register = (req, res) => {
     console.log(req.body)
-
     const { username, email, password, passwordConfirm } = req.body
-
     db.query('SELECT email FROM register WHERE email = ?', [email], async (error, results) => {
         if (error) {
             console.log(error);
@@ -79,7 +71,6 @@ exports.register = (req, res) => {
                 console.log(error)
             } else {
                 console.log(results);
-
                 return res.render('register', {
                     message: 'User Registered'
                 })
@@ -90,15 +81,12 @@ exports.register = (req, res) => {
 
 exports.contact = (req, res) => {
     console.log(req.body)
-
     const { name, email, number, message } = req.body
-
     db.query('INSERT INTO contact SET ?', { name: name, email: email, message: message, number: number }, (error, results) => {
         if (error) {
             console.log(error)
         } else {
             console.log(results);
-
             return res.render('contact', {
                 message: 'Message Send'
             })
@@ -106,19 +94,38 @@ exports.contact = (req, res) => {
     })
 }
 
+
 exports.isLoggedIn = async (req, res, next) => {
-    if (req.cookies.jwt)
+    db.query('SELECT * FROM contact', function (error, result) {
+        if (error) throw err
+        req.data = result
+        console.log(req.data) 
+    })
+    db.query('SELECT * FROM register', function (error, result) {
+        if (error) throw err
+        req.details = result
+        console.log(req.setails)  
+    })
+    if (req.cookies.jwt) {
         try {
             // verify the token
             const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET)
-            console.log(decoded);
+            console.log(decoded)
             // check if user still exist
-            db.query('SELECT * FROM register WHERE id = ?', [decoded.id], (error, result))
-            console.log(result);
-            
+            db.query('SELECT * FROM register WHERE id = ?', [decoded.id], (error, result) => {
+                console.log(result)
+                if (!result) {
+                    return next()
+                }
+                req.user = result[0]
+                return next()
+            })
         } catch (error) {
-
+            return next()
         }
-    next()
+
+    } else {
+        next()
+    }
 
 }
