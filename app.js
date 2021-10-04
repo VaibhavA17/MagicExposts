@@ -4,7 +4,8 @@ const mysql = require("mysql")
 const dotenv = require("dotenv")
 const cookieParser = require("cookie-parser")
 
-dotenv.config({ path: './.env' })
+dotenv.config({ path: './db.env' })
+
 
 const app = express()
 
@@ -37,6 +38,7 @@ db.connect((error) => {
 app.use('/', require('./routes/pages'))
 app.use('/auth', require('./routes/auth'))
 
-app.listen(5007, () => {
+app.listen(5011, () => {
     console.log("sever started on 5005")
 })
+
