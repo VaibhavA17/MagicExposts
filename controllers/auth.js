@@ -87,11 +87,9 @@ exports.contact = (req, res) => {
 
 exports.isLoggedIn = async (req, res, next) => {
     db.query('SELECT * FROM contact', function (error, result) {
-        if (error) throw err
         req.data = result
     })
     db.query('SELECT * FROM register', function (error, result) {
-        if (error) throw err
         req.details = result 
     })
     if (req.cookies.jwt) {
