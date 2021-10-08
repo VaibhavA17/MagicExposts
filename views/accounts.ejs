@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    
+
     <link rel="icon" type="image/ico" href="/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Magic Exports Admin</title>
@@ -21,11 +21,12 @@
                 <div class="navbar-wrapper">
                     <a class="navbar-brand" href="javascript:;">Admin Panel</a>
                 </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="navbar-toggler-icon icon-bar"></span>
-                <span class="navbar-toggler-icon icon-bar"></span>
-                <span class="navbar-toggler-icon icon-bar"></span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="navbar-toggler-icon icon-bar"></span>
+                    <span class="navbar-toggler-icon icon-bar"></span>
+                    <span class="navbar-toggler-icon icon-bar"></span>
                 </button>
             </div>
         </nav>
@@ -38,20 +39,22 @@
                     <div class="col-md-12"><br>
                         <% if(details.length!=0){ var i=1; details.forEach(function(data){ %>
                             <div class="alert alert-warning">
-                                <span>
-                                    <%= i %>. <%=data.username %> <br>
-                                    Email: <a href="mailto:<%=data.email %>"><%=data.email %></a><br>
-                                </span>
-                                <span>
-                                <a type="button" class="btn btn-primary btn-round">Delete</a>
-                                </span>
+                                <form action="auth/accounts/<%= data.id %>" method="POST">
+                                    <span>
+                                        <h5 style="font-weight: 500;">Username: <%=data.username %></h5>
+                                        <h6 style="text-transform: uppercase;">Email: <a href="mailto:<%=data.email %>"><%=data.email %></a></h6>
+                                    </span>
+                                    <hr>
+                                    <span>
+                                        <button id="<%= data.id %>" name="<%=data.id %>" style="align-content: center;" type="submit" class="btn btn-primary btn-round">Delete</button>
+                                    </span>
+                                </form>
                             </div>
-                            <% i++; }) %>
-                            <% } else{ %>
-                            <div class="alert alert-warning">
-                                <span>No Data Found</span>
-                            </div>
-                            <% } %>
+                        <% i++; }) %> <% } else { %>
+                        <div class="alert alert-warning">
+                            <span>No Data Found</span>
+                        </div>
+                        <% } %>
                     </div>
                 </div>
             </div>

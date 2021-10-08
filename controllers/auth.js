@@ -2,6 +2,8 @@ const mysql = require('mysql')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const { promisify } = require('util')
+const visitorCounter = require('express-visitor-counter')
+
 
 
 const db = mysql.createConnection({
@@ -81,6 +83,25 @@ exports.contact = (req, res) => {
             return res.render('contact', {
                 message: 'Message Send'
             })
+        }
+    })
+}
+
+exports.deleteMail = async (req, res) => {
+    db.query('DELETE FROM contact where id = ?',[parseInt(req.params.id)], (error, results) => {
+        if (error) {
+            console.log(error)
+        } else {
+            res.redirect('/mail')
+        }
+    })
+}
+exports.deleteAccount = async (req, res) => {
+    db.query('DELETE FROM register where id = ?',[parseInt(req.params.id)], (error, results) => {
+        if (error) {
+            console.log(error)
+        } else {
+            res.redirect('/accounts')
         }
     })
 }

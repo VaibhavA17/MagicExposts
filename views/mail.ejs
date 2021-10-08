@@ -20,11 +20,12 @@
                 <div class="navbar-wrapper">
                     <a class="navbar-brand" href="javascript:;">Admin Panel</a>
                 </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="navbar-toggler-icon icon-bar"></span>
-                <span class="navbar-toggler-icon icon-bar"></span>
-                <span class="navbar-toggler-icon icon-bar"></span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="navbar-toggler-icon icon-bar"></span>
+                    <span class="navbar-toggler-icon icon-bar"></span>
+                    <span class="navbar-toggler-icon icon-bar"></span>
                 </button>
             </div>
         </nav>
@@ -36,22 +37,25 @@
                     </div>
                     <div class="col-md-12"><br>
                         <% if(data.length!=0){ var i=1; data.forEach(function(data){ %>
-                        <div class="alert alert-warning">
-                            <span>
-                                <%= i %>. Message from <%=data.name %> <br>
-                                Email: <a href="mailto:<%=data.email %>"><%=data.email %></a><br>
-                                Contact No.: <a href="tel:<%=data.number %>"><%=data.number %></a><br>
-                                Message: <%=data.message %>
-                            </span><span>
-                            <a type="button" class="btn btn-primary btn-round" href="mailto:<%=data.email %>">Replay</a>
-                            <a type="button" class="btn btn-primary btn-round">Delete</a>
-                            </span>
-                        </div>
-                        <% i++; }) %>
-                        <% } else{ %>
-                        <div class="alert alert-warning">
-                            <span>No Data Found</span>
-                        </div>
+                            <div class="alert alert-warning">
+                                <form action="auth/mail/<%= data.id %>" method="POST">
+                                    <span>
+                                        <%= i %>. Message from <h5 style="font-weight: 500; text-transform: uppercase;"><%=data.name %></h5>
+                                        <b>Email: </b><a href="mailto:<%=data.email %>"><%=data.email %></a><br>
+                                        <b>Contact No.: </b><a href="tel:<%=data.number %>"><%=data.number %></a><br>
+                                        <hr>
+                                        <b>Message:</b><%=data.message %>
+                                    </span>
+                                    <hr><span>
+                                        <a type="button" class="btn btn-primary btn-round" href="mailto:<%=data.email %>">Replay</a>
+                                        <button id="<%= data.id %>" name="<%=data.id %>" type="submit" class="btn btn-primary btn-round">Delete</button>
+                                    </span>
+                                </form>
+                            </div>
+                        <% i++; }) %> <% } else{ %>
+                            <div class="alert alert-warning">
+                                <span>No Data Found</span>
+                            </div>
                         <% } %>
                     </div>
                 </div>
