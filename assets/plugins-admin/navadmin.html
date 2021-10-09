@@ -5,7 +5,7 @@
     <div class="sidebar-wrapper">
         <ul class="nav">
             <li class="nav-item active">
-                <a class="nav-link" href="/dashboard"><i class="material-icons">dashboard</i>
+                <a class="nav-link" href="/dashboard" id="dashboard"><i class="material-icons">dashboard</i>
                     <p>Dashboard</p>
                 </a>
             </li>
@@ -24,6 +24,11 @@
                     <p>Create Login</p>
                 </a>
             </li>
+            <li class="nav-item active mode">
+                <a class="nav-link change" href="#"><i class="material-icons">nightlight</i>
+                    <p>Dark Mode</p>
+                </a>
+            </li>
             <li class="nav-item active-pro ">
                 <a class="nav-link" href="/auth/logout">
                 <i class="material-icons">logout</i>
@@ -33,3 +38,17 @@
         </ul>
     </div>
 </div>
+<script>
+    $(function () {
+        $("#dashboard").load("dashboard.html");
+    });
+</script>
+<script>
+    $( ".change" ).on("click", function() {
+        if( $( "body" ).hasClass( "dark" )) {
+            $( "body" ).removeClass( "dark" )
+        } else {
+            $( "body" ).addClass( "dark" )
+        }
+    });
+</script>

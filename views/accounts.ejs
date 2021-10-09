@@ -45,9 +45,12 @@
                                         <h6 style="text-transform: uppercase;">Email: <a href="mailto:<%=data.email %>"><%=data.email %></a></h6>
                                     </span>
                                     <hr>
-                                    <span>
-                                        <button id="<%= data.id %>" name="<%=data.id %>" style="align-content: center;" type="submit" class="btn btn-primary btn-round">Delete</button>
-                                    </span>
+                                    <% if(data.id === 1 || data.id === 2){ %>
+
+                                        <span>
+                                            <button id="<%= data.id %>" name="<%=data.id %>" style="align-content: center;" type="submit" class="btn btn-primary btn-round">Delete</button>
+                                        </span>
+                                   <% } %>
                                 </form>
                             </div>
                         <% i++; }) %> <% } else { %>

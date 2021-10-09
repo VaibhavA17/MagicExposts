@@ -1,0 +1,21 @@
+<div class="col-md-12">
+    <div class="card card-profile">
+        <div class="card-body">
+            <div class="mode">
+                <button class="btn btn-round btn-primary change"><i class="material-icons">nightlight</i>Dark Mode</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $( ".change" ).on("click", function() {
+        if( $( "body" ).hasClass( "dark" )) {
+            $( "body" ).removeClass( "dark" );
+            $( ".change" ).text( `Dark Mode: OFF` );
+        } else {
+            $( "body" ).addClass( "dark" );
+            $( ".change" ).text( `Dark Mode: ON` );
+        }
+    });
+</script>

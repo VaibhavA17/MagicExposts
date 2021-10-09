@@ -13,6 +13,9 @@ router.get('/dashboard', authController.isLoggedIn, (req, res) => {
 router.get('/login', (req, res) => {
     res.render('login')
 })
+// router.get('/register', (req, res) => {
+//     res.render('register')
+// })
 router.get('/register', authController.isLoggedIn, (req, res) => {
     if (req.user) {
         res.render('register')
