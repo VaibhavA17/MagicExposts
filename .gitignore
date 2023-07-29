@@ -3,3 +3,7 @@ npm-debug.log
 *.npmrc
 extra.html
 dark mode
+
+.env
+
+/controllers/
