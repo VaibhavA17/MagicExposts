@@ -9,12 +9,12 @@ dotenv.config({ path: './db.env' })
 
 const app = express()
 
-const db = mysql.createConnection({
-    host: process.env.DATABASE_HOST,
-    user: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE
-})
+// const db = mysql.createConnection({
+//     host: process.env.DATABASE_HOST,
+//     user: process.env.DATABASE_USER,
+//     password: process.env.DATABASE_PASSWORD,
+//     database: process.env.DATABASE
+// })
 
 const publicDirectory = path.join(__dirname, './assets')
 app.use(express.static(publicDirectory))
@@ -25,13 +25,13 @@ app.use(cookieParser())
 
 app.set('view engine', 'hbs')
 
-db.connect((error) => {
-    if (error) {
-        console.log(error);
-    } else {
-        console.log("MySQL is connected..");
-    }
-})
+// db.connect((error) => {
+//     if (error) {
+//         console.log(error);
+//     } else {
+//         console.log("MySQL is connected..");
+//     }
+// })
 
 //define Routes
 app.use('/', require('./routes/pages'))
