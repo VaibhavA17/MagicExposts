@@ -1,5 +1,4 @@
-const magicExportsEmail = "iamvaibhav.agarwal@gmail.com"
-// "info.magicexports@gmail.com";
+const magicExportsEmail = "iamvaibhav.agarwal@gmail.com";
 
 module.exports = {
   magicExportsEmail
