@@ -16,7 +16,6 @@ form.addEventListener('submit', async (e) => {
     let responseData = await postFormFieldsAsJson({ url, formData });
 
     if (responseData.success) {
-      alert(responseData.message);
       form.reset();
       response.classList.remove('d-none');
       responseText.innerHTML = responseData.message;
