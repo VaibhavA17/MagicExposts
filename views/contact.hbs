@@ -154,9 +154,9 @@
                 ></textarea>
                 <input type="submit" value="SEND" name="send" />
               </div>
-              {{#if message}}
-                <h5 class="alert alert-danger mt-4">{{message}}</h5>
-              {{/if}}
+              <div class="d-none" id="response">
+                <h5 id="response-text" class="alert mt-4"></h5>
+              </div>
             </div>
           </form>
         </div>

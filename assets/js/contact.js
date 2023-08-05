@@ -1,5 +1,9 @@
 const form = document.querySelector('#contact-form-magic');
 
+const response = document.querySelector('#response');
+
+const responseText = document.querySelector('#response-text');
+
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
@@ -10,11 +14,32 @@ form.addEventListener('submit', async (e) => {
     let formData = new FormData(form);
 
     let responseData = await postFormFieldsAsJson({ url, formData });
-    console.log(responseData);
+
+    if (responseData.success) {
+      alert(responseData.message);
+      form.reset();
+      response.classList.remove('d-none');
+      responseText.innerHTML = responseData.message;
+      setTimeout(() => {
+        response.classList.add('d-none');
+      }, 5000);
+    } else {
+      response.classList.remove('d-none');
+      responseText.innerHTML = responseData.message;
+      setTimeout(() => {
+        response.classList.add('d-none');
+      }, 5000);
+    }
   } catch (error) {
     console.error(error);
+    response.classList.remove('d-none');
+    responseText.innerHTML = error.message;
+    setTimeout(() => {
+      response.classList.add('d-none');
+    }, 5000);
   }
 });
+
 
 
 async function postFormFieldsAsJson({ url, formData }) {
