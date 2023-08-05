@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@getbrevo/brevo": "^1.0.1",
     "bcryptjs": "2.4.3",
     "cookie-parser": "1.4.5",
     "darkmode-js": "^1.5.7",
@@ -22,7 +24,9 @@
     "jsonwebtoken": "8.5.1",
     "mysql": "2.18.1",
     "node": "^16.10.0",
-    "npm": "7.24.1"
+    "nodemon": "^3.0.1",
+    "npm": "^7.24.1",
+    "sib-api-v3-sdk": "^8.5.0"
   },
   "engines": {
     "npm": "6.x",

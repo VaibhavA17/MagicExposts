@@ -2,6 +2,7 @@ const mysql = require('mysql')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const { promisify } = require('util')
+const { sendMail } = require('../lib/sendmail')
 
 
 const db = mysql.createConnection({
@@ -72,21 +73,12 @@ exports.register = (req, res) => {
     })
 }
 
-exports.contact = (req, res) => {
-    const { name, email, number, message } = req.body
-    db.query('INSERT INTO contact SET ?', { name: name, email: email, message: message, number: number }, (error, results) => {
-        if (error) {
-            console.log(error)
-        } else {
-            return res.render('contact', {
-                message: 'Message Send'
-            })
-        }
-    })
+exports.contact = async (req, res) => {
+    await sendMail(req);
 }
 
 exports.deleteMail = async (req, res) => {
-    db.query('DELETE FROM contact where id = ?',[parseInt(req.params.id)], (error, results) => {
+    db.query('DELETE FROM contact where id = ?', [parseInt(req.params.id)], (error, results) => {
         if (error) {
             console.log(error)
         } else {
@@ -95,7 +87,7 @@ exports.deleteMail = async (req, res) => {
     })
 }
 exports.deleteAccount = async (req, res) => {
-    db.query('DELETE FROM register where id = ?',[parseInt(req.params.id)], (error, results) => {
+    db.query('DELETE FROM register where id = ?', [parseInt(req.params.id)], (error, results) => {
         if (error) {
             console.log(error)
         } else {
@@ -109,7 +101,7 @@ exports.isLoggedIn = async (req, res, next) => {
         req.data = result
     })
     db.query('SELECT * FROM register', function (error, result) {
-        req.details = result 
+        req.details = result
     })
     if (req.cookies.jwt) {
         try {
@@ -132,9 +124,9 @@ exports.isLoggedIn = async (req, res, next) => {
 }
 
 exports.logout = (req, res) => {
-    res.cookie('jwt','logout', {
-        expires: new Date(Date.now() + 2*1000),
-        httpOnly: true 
+    res.cookie('jwt', 'logout', {
+        expires: new Date(Date.now() + 2 * 1000),
+        httpOnly: true
     })
     res.status(200).redirect('/login')
 }
