@@ -15,8 +15,8 @@ app.use(cookieParser());
 
 app.set('view engine', 'hbs');
 
-app.use('/', require('./routes/pages'));
-app.use('/auth', require('./routes/auth'));
+app.use('/', require('./routes/pages.routes'));
+app.use('/auth', require('./routes/auth.routes'));
 
 app.listen(process.env.PORT || 3000, function () {
     console.log(`Server started on port ${process.env.PORT || 3000} on ${process.env.NODE_ENV} mode`)

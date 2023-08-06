@@ -1,7 +1,9 @@
 const express = require("express");
+const pagesController = require('../controllers/pages.controllers');
+
 const router = express.Router();
 
-router.get('/', (req, res) => res.render('index'));
+router.get('/', (req, res) => res.render('index', pagesController.home()));
 router.get('/contact', (req, res) => res.render('contact'));
 router.get('/about', (req, res) => res.render('about'));
 router.get('/products', (req, res) => res.render('our-product'));

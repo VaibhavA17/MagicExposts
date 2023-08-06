@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Magic Exports</title>
+    <title>{{title}}</title>
     <meta name="description" content="Magic Exports is one of the leading manufacturers of home textiles. Since our inception, we have invested in developing modern manufacturing technologies and designs. The manufacturing unit is fitted with state of the art machinery including Stitching machines, power looms, tufting machines, embroidery machines. The company has expanded and now covers almost all items that are related to the textile industry and is considered as an emerging industry leader in textile products. The company believes in moving forward with time and has kept continuously evolving to make sure that it can keep its commitment to quality while developing more styles and patterns. The company was built on establishing long term business relations with their client base while focusing on moving forward towards excellence at full throttle.">
     <meta name="msapplication-tap-highlight" content="yes" />
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0" />
@@ -412,9 +412,10 @@
                 <div class="row">
                     <div class="newsletter-right" style="background: url(img/newsletter-bg.jpg)">
                         <div class="newsletter-right-inner">
-                            <form>
+                            <form id="newsletter-form-magic">
                                 <input type="text" name="newsletter" placeholder="ENTER YOUR EMAIL">
-                                <input type="submit" value="SUBSCRIBE">
+                                <span class="d-none" id="subscribe-alert"></span>
+                                <input type="submit" value="SUBSCRIBE" id="subscribe-btn">
                             </form>
                         </div>
                     </div>
@@ -440,6 +441,7 @@
     <script src="/js/vendor/jquery.social-buttons.min.js"></script>
     <script src="/js/vendor/wow.min.js"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/newsletter.js"></script>
     <script src="/js/ajax.js"></script>
     <script>
     $(function () {

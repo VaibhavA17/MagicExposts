@@ -1,14 +1,14 @@
-const form = document.querySelector('#contact-form-magic');
+const form = document.querySelector('#newsletter-form-magic');
 
-const response = document.querySelector('#response');
+const subBtn = document.querySelector('#subscribe-btn');
 
-const responseText = document.querySelector('#response-text');
+const subAlert = document.querySelector('#subscribe-alert');
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   let form = e.currentTarget;
-  let url = '/auth/contact';
+  let url = '/auth/newsletter';
 
   try {
     let formData = new FormData(form);
@@ -17,23 +17,23 @@ form.addEventListener('submit', async (e) => {
 
     if (responseData.success) {
       form.reset();
-      response.classList.remove('d-none');
-      responseText.innerHTML = responseData.message;
+      subBtn.value = 'Subscribed';
+      subBtn.disabled = true;
+      subAlert.textContent = responseData.message;
+      subAlert.classList.remove('d-none');
       setTimeout(() => {
-        response.classList.add('d-none');
+        subAlert.textContent = '';
+        subAlert.classList.add('d-none');
       }, 5000);
     } else {
-      response.classList.remove('d-none');
-      responseText.innerHTML = responseData.message;
-      setTimeout(() => {
-        response.classList.add('d-none');
-      }, 5000);
+      throw new Error(responseData.message);
     }
   } catch (error) {
-    response.classList.remove('d-none');
-    responseText.innerHTML = error.message;
+    subAlert.textContent = error.message;
+    subAlert.classList.remove('d-none');
     setTimeout(() => {
-      response.classList.add('d-none');
+      subAlert.textContent = '';
+      subAlert.classList.add('d-none');
     }, 5000);
   }
 });
@@ -43,20 +43,12 @@ form.addEventListener('submit', async (e) => {
 async function postFormFieldsAsJson({ url, formData }) {
   let formDataObject = Object.fromEntries(formData.entries());
 
-  if (!formDataObject.name) {
-    throw new Error('Name is required');
-  }
-
-  if (!formDataObject.email) {
+  if (!formDataObject.newsletter) {
     throw new Error('Email address is required');
   }
 
-  if (!formDataObject.email.includes('@')) {
+  if (!formDataObject.newsletter.includes('@')) {
     throw new Error('Email address is invalid');
-  }
-
-  if (!formDataObject.number) {
-    throw new Error('Phone number is required');
   }
 
   let formDataJsonString = JSON.stringify(formDataObject);
