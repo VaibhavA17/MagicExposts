@@ -3,7 +3,7 @@ name: Magic Exports - Staging Deployment
 on:
   push:
     branches:
-      - dev
+      - staging
 
 jobs:
   deploy:
